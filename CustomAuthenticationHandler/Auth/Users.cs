@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-//Step 10.01
+//Step 10.01 - Entidade de armazenamento de usuários
 namespace CustomAuthenticationHandler.Auth
 {
     public class User

@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Authentication;
 
 namespace CustomAuthenticationHandler.Auth
 {
-    //Step 06
+    //Step 06 - Opções de configuração para o handler de autenticação customizado
     public class MyCustomAuthOptions : AuthenticationSchemeOptions
     {
         public string ForbiddenPage { get; set; }

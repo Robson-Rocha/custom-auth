@@ -11,16 +11,16 @@ using Microsoft.Extensions.Options;
 
 namespace CustomAuthenticationHandler.Auth
 {
-    //Step 08
+    //Step 08 - Handler de AUtenticação Customizado
     public class MyCustomAuthHandler : AuthenticationHandler<MyCustomAuthOptions>
     {
-        //Step 09
+        //Step 09 - Construtor invocando o base
         public MyCustomAuthHandler(IOptionsMonitor<MyCustomAuthOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock)
             : base(options, logger, encoder, clock)
         {
         }
 
-        //Step 10
+        //Step 10 - Método para autenticação de requisições
         protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
         {
             return await Task.Run(() =>
@@ -61,14 +61,14 @@ namespace CustomAuthenticationHandler.Auth
             });
         }
 
-        //Step 13
+        //Step 13 - Processamento de Challenges - Quando a aplicação requer que o usuário se autentique
         protected override Task HandleChallengeAsync(AuthenticationProperties properties)
         {
             Response.Redirect(Options.LoginPage + "?returnUrl=" + UriHelper.GetEncodedUrl(Request));
             return Task.CompletedTask;
         }
 
-        //Step 18
+        //Step 18 - Processamento de acessos não autorizados - quando o usuário está autenticado, mas não tem acesso
         protected override Task HandleForbiddenAsync(AuthenticationProperties properties)
         {
             Response.Redirect(Options.ForbiddenPage);

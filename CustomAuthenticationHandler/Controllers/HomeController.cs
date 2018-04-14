@@ -18,11 +18,11 @@ namespace CustomAuthenticationHandler.Controllers
             return View();
         }
 
-        //Step 12
+        //Step 12 - Define que o método requer Autorização
         [Authorize]
-        //Step 17
+        //Step 17 - Autorização por Roles
         //[Authorize(Roles = "Admin")] 
-        //Step 21
+        //Step 21 - Esquema de autorização alternativo
         //[Authorize(AuthenticationSchemes = MyCustomAuthSchemes.AdminScheme)] 
         public IActionResult About()
         {

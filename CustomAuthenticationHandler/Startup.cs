@@ -23,12 +23,12 @@ namespace CustomAuthenticationHandler
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                //Step 01
+                //Step 01 - Adicionar os serviços do Middleware de autenticação
                 .AddAuthentication(options => {
                     options.DefaultAuthenticateScheme = MyCustomAuthSchemes.UserScheme;
                     options.DefaultChallengeScheme = MyCustomAuthSchemes.UserScheme;
                 })
-                //Step 03
+                //Step 03 - Injeção do nosso Handler de Autenticação Customizado
                 .AddMyCustomAuth(options => {
                     options.LoginPage = "/account/login";
                     options.ForbiddenPage = "/account/forbidden";
@@ -51,7 +51,7 @@ namespace CustomAuthenticationHandler
 
             app.UseStaticFiles();
 
-            //Step 11
+            //Step 11 - Inserção do Middleware de Autenticação do ASP.NET Core no pipeline
             app.UseAuthentication();
 
             app.UseMvc(routes =>

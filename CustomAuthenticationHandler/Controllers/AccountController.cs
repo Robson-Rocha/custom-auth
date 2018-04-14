@@ -8,14 +8,14 @@ namespace CustomAuthenticationHandler.Controllers
 {
     public class AccountController : Controller
     {
-        //Step 14
+        //Step 14 - Método de login
         [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
 
-        //Step 16
+        //Step 16 - Processamento do login
         [HttpPost]
         public IActionResult Login(string returnUrl, string key)
         {
@@ -25,7 +25,7 @@ namespace CustomAuthenticationHandler.Controllers
             return Redirect(returnUrl);
         }
 
-        //Step 19
+        //Step 19 - Página de acesso negado
         [HttpGet]
         public IActionResult Forbidden()
         {
